@@ -1,0 +1,107 @@
+main#matches {
+    min-height: 100vh;
+
+    .container {
+        padding-block: 3em;
+    }
+
+    #schools_container {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .alert {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5em;
+            color: gray;
+        }
+
+        .alert.error span{
+            color: #e02d2d;
+        }
+
+        .loader {
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pageTitle {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 2rem;
+
+            @media(max-width: 500px){
+                font-size: 1.5rem;
+            }
+        }
+
+        #shortcuts {
+            a:hover {
+                color: var(--brand-orange);
+            }
+        }
+
+        .matchesDescription {
+            color: var(--text-color);
+        }
+
+        .school {
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            background-color: var(--card-bg);
+            padding: 10px 20px 10px 10px;
+            cursor: pointer;
+
+            &:hover {
+                outline: 1px solid var(--brand-blue);
+            }
+        }
+
+        .school_info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            .school_image {
+                width: 70px;
+                height: 60px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                background-color: var(--brand-orange);
+            }
+
+            .school_name {
+                color: var(--text-color);
+                text-align: left;
+            }
+
+            .school_level {
+                background-color: var(--brand-blue);
+                width: fit-content;
+                padding: 3px 10px;
+                margin-top: 0.5em;
+                font-size: 0.6rem;
+                border-radius: 50px;
+                color: white;
+            }
+        }
+
+        span {
+            color: var(--text-color);
+        }
+    }
+}

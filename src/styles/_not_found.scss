@@ -1,0 +1,20 @@
+main#notfound {
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        flex-direction: column;
+
+        img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        p {
+            text-transform: uppercase;
+            color: gray;
+        }
+    }
+}

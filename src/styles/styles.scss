@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
+:root {
+    --navbar-height: 50px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#body {
+
+    &.dark {
+        --brand-blue: #543badff;
+        --brand-orange: #ff7f2aff;
+        --logo-theme: white;
+        --background-color: #050811ff;
+        --card-bg: #161333ff;
+        --text-color: #e6e6e6ff;
+    }
+
+    &.light {
+        --brand-blue: #543badff;
+        --brand-orange: #ff7f2aff;
+        --logo-theme: var(--brand-blue);
+        --background-color: #e6e6e6ff;
+        --card-bg: #ffffff;
+        --text-color: #050811ff;
+    }
+
+    background-color: var(--background-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+button, input, textarea {
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.container {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding-inline: 1em;
+}
+
+nav {
+    width: 100%;
+    height: var(--navbar-height);
+    position: fixed;
+    z-index: 1;
+    box-shadow: 0 0 5px 5px rgba(black,.05);
+    backdrop-filter: blur(10px);
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #themeToggler {
+        color: var(--text-color);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+
+        &:hover {
+            color: var(--brand-orange);
+        }
+
+        .theme-icon {display: none;}
+
+        @media(max-width: 500px){
+            .theme-icon {display: block;}
+            .theme-label {display: none;}
+        }
+    }
+
+
+    ul {
+        display: flex;
+        gap: 2em;
+        text-transform: uppercase;
+        color: var(--text-color);
+        font-size: 0.8rem;
+        font-weight: bold;
+
+        @media(max-width: 500px){
+            gap: 1em;
+
+            .nav-icon {
+                display: none;
+            }
+        }
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        cursor: pointer;
+        transition: color .2s ease-in-out;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+
+        a.active {
+            color: var(--brand-orange);
+        }
+
+        &:hover {
+            color: var(--brand-orange);
+        }
+    }
+}
+
+main {
+    padding-block: var(--navbar-height);
+    min-height: 100vh;
+}
+
+@import 'home';
+@import 'filter';
+@import 'matches';
+@import 'school';
+@import 'about';
+@import 'not_found';
+
+@import 'admin_login';
+@import 'admin_school';
+
+footer {
+    height: var(--footer-height);
+    min-height: var(--footer-height);
+
+    .container {
+        padding-block: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        color: gray;
+        opacity: .5;
+        font-size: 0.8rem;
+
+        p {
+            text-align: center;
+        }
+
+        #credits {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid rgba(gray,.2);
+            margin-bottom: 2em;
+
+            td {padding: 0.3em;}
+        }
+    }
+}

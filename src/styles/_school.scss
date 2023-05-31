@@ -1,0 +1,186 @@
+main#school {
+    
+    .container {
+        padding-block: 3em;
+    }
+
+    #school_info_container {
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        // outline: 2px solid red;
+
+        .card_title {
+            text-transform: uppercase;
+            color: gray;
+            margin-bottom: .5em;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: .5em;
+            border-radius: 5px;
+            color: var(--text-color);
+            box-shadow: 0 0 5px 5px rgba(black,.05);
+        }
+
+        #name_and_id {
+            display: flex;
+            align-items: center;
+
+            @media(max-width: 500px){
+                flex-direction: column;
+                align-items: start;
+                gap: 1em;
+            }
+
+            #school_intro {
+                flex: 1;
+            }
+
+            #school_name {
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: var(--text-color);
+
+                @media(max-width: 500px){
+                    font-size: 1.5rem;
+                }
+            }
+
+            #school_id {
+                font-size: 1.3rem;
+                color: var(--brand-orange);
+                font-weight: bold;
+            }
+
+            a#callBtn {
+                background-color: var(--brand-blue);
+                font-size: 1.2rem;
+                color: white;
+                padding-block: 0.3em;
+                padding-inline: 1em;
+                border-radius: 5px;
+                min-width: 150px;
+                cursor: pointer;
+                text-align: center;
+
+                &:hover {
+                    background-color: var(--brand-orange);
+                }
+            }
+        }
+
+        // #description {
+
+        // }
+
+        #school_fee {
+            font-size: 1.3rem;
+            width: fit-content;
+            color: var(--brand-orange);
+            font-weight: bold;
+        }
+
+        #categories_cards {
+            width: 100%;
+            display: flex;
+            gap: 1em;
+            overflow-y: scroll;
+            // outline: 2px solid red;
+            padding-block: 1em;
+
+            .card {
+                min-width: 150px;
+            }
+
+            .category_key {
+                color: gray;
+            }
+
+            // .category_value {
+            //     font-size: 1.2rem;
+            // }
+        }
+
+        #school_images {
+            display: flex;
+            gap: 1em;
+            overflow-y: scroll;
+            padding-block: 1em;
+            
+            .image {
+                width: 300px;
+                flex-shrink: 0;
+                aspect-ratio: 1/1;
+                border-radius: 5px;
+                background-color: var(--brand-orange);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+
+                @media(max-width: 500px){
+                    width: 250px;
+                }
+            }
+        }
+
+        #contacts {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .contact_title {
+                color: gray;
+            }
+
+            .contact {
+                border-radius: 0;
+            }
+
+            .contact:first-child {
+                border-radius: 10px 10px 0 0;
+            }
+
+            .contact:last-child {
+                border-radius: 0 0 10px 10px;
+            }
+        }
+
+        #results {
+            display: flex;
+            gap: 1em;
+
+            .result {
+                background-color: var(--card-bg);
+                border-radius: 15px;
+                padding: 0.5em;
+                min-width: 200px;
+            }
+
+            .outliner {
+                border: 1px solid var(--text-color);
+                border-radius: 15px;
+                padding: 1em;
+            }
+
+            .result_year {
+                font-weight: bold;
+                color: gray;
+            }
+
+            ul {
+                color: var(--text-color);
+            }
+
+            ul span {
+                color: var(--brand-orange);
+            }
+        }
+    }
+}

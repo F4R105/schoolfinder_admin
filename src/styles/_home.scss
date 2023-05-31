@@ -1,0 +1,102 @@
+main#home {
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 70vh;
+        gap: 4em;
+    }
+
+    #brand {
+
+        #logo {
+            font-weight: bold;
+            color: var(--brand-orange);;
+            font-size: 2rem;
+
+            span{
+                color: var(--logo-theme);
+            }
+
+            @media(max-width: 500px){
+                font-size: 1.5rem;
+            }
+        }
+
+        #brand-descr {
+            color: gray;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    }
+
+    #search_container {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        width: 100%;
+        max-width: 500px;
+
+        #search {
+            flex: 1;
+            display: flex;
+            background-color: white;
+            border-radius: 50px;
+            padding: 2px;
+            overflow: hidden;
+            box-shadow: 0 0 5px 5px rgba(black,.05);
+
+            &:focus-within {
+                outline: 2px solid var(--brand-blue);
+            }
+
+            input {
+                flex: 1;
+                font-size: 1.5rem;
+                padding-inline: 0.6em;
+                padding-block: 0.3em;
+                width: 10%;
+            }
+
+            #search_btn {
+                background-color: var(--brand-blue);
+                border-radius: 50px;
+                color: white;
+                font-weight: bold;
+                padding-inline: 1.5em;
+                cursor: pointer;
+                transition: background-color .2s ease-in-out;
+
+                &:hover {
+                    background-color: var(--brand-orange);
+                }
+            }
+        }
+
+        #filter_btn {
+            background-color: var(--brand-blue);
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            padding-inline: 1.5em;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color .2s ease-in-out;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: var(--brand-orange);
+            }
+
+            @media(max-width: 500px){
+                display: none;
+            }
+        }
+    }
+}
