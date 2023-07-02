@@ -27,7 +27,7 @@ function Template() {
                 <div className="container">
                     <ul>
                         <li>
-                            <NavLink to={"/"}>                         
+                            <NavLink to={"/admin"}>                         
                                 <FaHome 
                                     size={20}
                                     className='nav-icon'

@@ -142,15 +142,13 @@ main {
     min-height: 100vh;
 }
 
+@import 'admin_login';
 @import 'home';
 @import 'filter';
 @import 'matches';
 @import 'school';
 @import 'about';
 @import 'not_found';
-
-@import 'admin_login';
-@import 'admin_school';
 
 footer {
     height: var(--footer-height);

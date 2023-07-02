@@ -1,47 +1,66 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import Select from "react-select"
+
+const CategoryOptions = {
+  level: [
+      {value: "primary", label: "Primary"},
+      {value: "secondary", label: "Secondary"},
+      {value: "advanced", label: "Advanced"},
+  ],
+  religion: [
+      {value: "islamic", label: "Islamic"},
+      {value: "christian", label: "Christian"},
+      {value: "mixed", label: "Mixed"},
+  ],
+  gender: [
+      {value: "mixed", label: "Mixed"},
+      {value: "boys", label: "Boys"},
+      {value: "girls", label: "Girls"},
+  ],
+  ownership: [
+      {value: "public", label: "Public"},
+      {value: "private", label: "Private"},
+  ],
+  occupation: [
+      {value: "both", label: "Both"},
+      {value: "hostel", label: "Hostel"},
+      {value: "day", label: "Day"},
+  ],
+}
 
 function School() {
-  // const {state} = useLocation()
-  // const {school} = state
+  const {state} = useLocation()
+  const {school} = state
 
-  const [description, setDescription] = useState('')
-  const [images, setImages] = useState([])
-  const [phone, setPhone] = useState('')
-  const [mailbox, setMailbox] = useState('')
-  const [email, setEmail] = useState('')
-  const [socials, setSocials] = useState([])
+  // INTRODUCTION
+  const [description, setDescription] = useState(school.description)
+  const [images, setImages] = useState(school.images)
 
+  // CONTACTS
+  const [phone, setPhone] = useState(school.contacts.phone)
+  const [mailbox, setMailbox] = useState(school.contacts.mailbox)
+  const [email, setEmail] = useState(school.contacts.email)
+  const [socials, setSocials] = useState(school.contacts.socials)
 
-  const [level, setLevel] = useState('')
-  const [ownership, setOwnership] = useState('')
-  const [gender,setGender] = useState('')
-  const [religion, setReligion] = useState('')
-  const [occupation, setOccupation] = useState('')
-  const [fee, setFee] = useState('')
-
-  // useEffect(()=>{
-  //   setDescription(school.description)
-  //   setLevel()
-  //   setOwnership()
-  //   setGender()
-  //   setReligion()
-  //   setOccupation()
-  //   setFee(school.category.school_fee)
-  // },[])
+  // CATEGORIES
+  const [level, setLevel] = useState(school.category.level)
+  const [ownership, setOwnership] = useState(school.category.ownership)
+  const [gender,setGender] = useState(school.category.gender)
+  const [religion, setReligion] = useState(school.category.religion)
+  const [occupation, setOccupation] = useState(school.category.occupation)
+  const [fee, setFee] = useState(school.category.school_fee)
 
   return (
-    <main id="admin_school">
+    <main id="school">
       <div className="container">
         <div id="school_info_container">
 
 {/* NAME AND ID */}
           <div id="name_and_id">
             <div id='school_intro'>
-              <div id="school_name">Mvumi Mission</div>
-              <div id="school_id">S5042</div>
-              {/* <div id="school_name">{school.name}</div>
-              <div id="school_id">{school.school_id}</div> */}
+              <div id="school_name">{school.name}</div>
+              <div id="school_id">{school.school_id}</div>
             </div>
               <button 
                 id="update_btn"
@@ -59,6 +78,8 @@ function School() {
                 cols={30} 
                 rows={10}
                 value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                resize="vertical"
               ></textarea>
             </div>
 
@@ -68,7 +89,9 @@ function School() {
               <input 
                 type="text" 
                 id='school_fee' 
-                value={fee} />
+                value={fee}
+                onChange={(e) => setFee(e.target.value)} 
+              />
             </div>
 
 {/* CATEGORIES */}
@@ -77,31 +100,51 @@ function School() {
             <div id="categories_cards">
                 <div className="card">
                   <div className="category_key">Level</div>
-                  <div className="category_value">Primary</div>
-                  {/* <input type="select">
-                    <option value="null">Null</option>
-                  </input> */}
-                  {/* <div className="category_value">{school.category.level}</div> */}
+                  <Select 
+                    options={CategoryOptions.level}
+                    value={level}
+                    onChange={(value) => {
+                      setLevel(value)
+                      console.log(value)
+                    }} 
+                    className='select'
+                  />
                 </div>
                 <div className="card">
                   <div className="category_key">Religion</div>
-                  <div className="category_value">Islamic</div>
-                  {/* <div className="category_value">{school.category.religion}</div> */}
+                  <Select 
+                    options={CategoryOptions.religion} 
+                    value={religion}
+                    onChange={(value) => setReligion(value)} 
+                    className='select'
+                  />
                 </div>
                 <div className="card">
                   <div className="category_key">Gender</div>
-                  <div className="category_value">Boys</div>
-                  {/* <div className="category_value">{school.category.gender}</div> */}
+                  <Select 
+                    options={CategoryOptions.gender} 
+                    value={gender}
+                    onChange={(value) => setGender(value)} 
+                    className='select'
+                  />
                 </div>
                 <div className="card">
                   <div className="category_key">Ownership</div>
-                  <div className="category_value">Public</div>
-                  {/* <div className="category_value">{school.category.ownership}</div> */}
+                  <Select 
+                    options={CategoryOptions.ownership} 
+                    value={ownership}
+                    onChange={(value) => setOwnership(value)} 
+                    className='select'
+                  />
                 </div>
                 <div className="card">
                   <div className="category_key">Occupation</div>
-                  <div className="category_value">Boarding</div>
-                  {/* <div className="category_value">{school.category.occupation}</div> */}
+                  <Select 
+                    options={CategoryOptions.occupation} 
+                    value={occupation}
+                    onChange={(value) => setOccupation(value)} 
+                    className='select'
+                  />
                 </div>
             </div>
           </div>
@@ -138,19 +181,19 @@ function School() {
               <div className="contact card">
                 <div className="contact_title">Phone</div>
                 <div className="contact_detail">
-                  <input type="text" value={phone} />
+                  <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 </div>
               </div>
               <div className="contact card">
                 <div className="contact_title">Mailbox</div>
                 <div className="contact_detail">
-                  <input type="text" value={mailbox} />
+                  <input type="text" value={mailbox} onChange={(e) => setMailbox(e.target.value)} />
                 </div>
               </div>
               <div className="contact card">
                 <div className="contact_title">Email</div>
                 <div className="contact_detail">
-                  <input type="email" value={email} />
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
               </div>
 
@@ -185,7 +228,7 @@ function School() {
           <div>
             <div className="card_title">Latest results</div>
             <div id="results">
-              {/* {school.results.length !== 0 && 
+              {school.results.length !== 0 && 
                 school.results.map(resultYear => (
                   <div className='result'>
                     <div className="outliner">
@@ -205,6 +248,9 @@ function School() {
                             <li>
                               Grade D: <span>{resultYear.grades.D}</span>
                             </li>
+                            <li>
+                              Grade F: <span>{resultYear.grades.E}</span>
+                            </li>
                           </> :
                           <>
                             <li>
@@ -219,13 +265,16 @@ function School() {
                             <li>
                               Division four: <span>{resultYear.results.division_four}</span>
                             </li>
+                            <li>
+                              Fail: <span>{resultYear.results.fail}</span>
+                            </li>
                           </>
                         }
                       </ul>
                     </div>
                   </div>
                 ))
-              } */}
+              }
             </div>
           </div>
 

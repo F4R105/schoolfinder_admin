@@ -15,7 +15,6 @@ function Matches() {
   const searchForSchools = async (query) => {
     const endpoint = state.trigger === "search" ? "search" : "filter"
     try{
-      // const res = await fetch(`https://6e69-197-250-228-169.ngrok-free.app/${endpoint}`, {
       const res = await fetch(`http://localhost:8880/${endpoint}`, {
 
         headers: {
@@ -72,7 +71,7 @@ function Matches() {
                     />
                     <span>{errorMessage}</span>
                     <div id="shortcuts">
-                      <Link to="/">Search</Link>
+                      <Link to="/admin">Search</Link>
                       {" | "}
                       <Link to="/filter">Filter</Link>
                     </div>
@@ -87,7 +86,7 @@ function Matches() {
                       />
                       <span>No school were found</span>
                       <div id="shortcuts">
-                        <Link to="/">Search</Link>
+                        <Link to="/admin">Search</Link>
                         {" | "}
                         <Link to="/filter">Filter</Link>
                       </div>
@@ -97,7 +96,7 @@ function Matches() {
                       {schools.map(school => (
                           <button
                             className="school"
-                            onClick={() => navigate('/school', {state: {school}})}
+                            onClick={() => navigate('/admin/school', {state: {school}})}
                           >
                             <div className='school_info'>
                               <div className="school_image"><FaSchool size={25}/></div>
