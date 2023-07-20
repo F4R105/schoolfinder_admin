@@ -4,7 +4,7 @@ function Login() {
   return (
     <main id="admin">
         <div className="container">
-          Login
+          Login trial
         </div>
     </main>
   )
